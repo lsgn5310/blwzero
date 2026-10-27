@@ -1,2 +1,52 @@
-# blwzero
-Set your screen brightness to actual 0% on GNOME.
+# Below Zero
+
+**Reach true 0% display backlight on GNOME.**
+
+Below Zero is a GNOME Shell extension that aims to let you turn your laptop's physical display backlight all the way down to zero using the standard GNOME brightness slider and keyboard brightness controls.
+
+## The problem
+
+I used Mac for many years and i really liked that you can turn off the screen completely just with brightness slider, unfortunately in most cases you can`t do that on regular laptops.
+
+So. Below Zero was created to address this limitation by allowing the hardware backlight to reach 0%, instead of simply placing a dark overlay over the screen.
+
+## Features
+
+- Use the familiar GNOME brightness slider.
+- Use your laptop's standard brightness keys.
+- Set the physical backlight to zero when minimum brightness is requested.
+- Keep normal GNOME brightness handling for non-zero levels.
+
+## Compatibility
+
+Initially tested on:
+
+- Fedora Linux 44
+- GNOME Shell 50
+- Intel integrated graphics with the `intel_backlight` interface
+
+Other hardware and GNOME versions have not yet been tested.
+
+## Installation
+
+The project includes an installation script and a privileged helper.
+
+1. Download or clone this repository.
+2. Review the source code and installation scripts.
+3. Follow the installation instructions provided with the project.
+
+**Warning:** This extension uses elevated privileges to change the hardware backlight. Compatibility depends on your system's backlight interface. Make sure you know how to restore your brightness if the screen becomes too dark.
+
+## Uninstallation
+
+Use the included `uninstall.sh` script and follow its instructions.
+
+## Project status
+
+This is an early-stage community project. It has been tested on the developer's laptop, but it is not an official GNOME extension.
+
+Bug reports, testing, and contributions are welcome.
+
+## License
+
+Licensed under the GNU General Public License v3.0 or later. See [LICENSE](LICENSE) for details.
