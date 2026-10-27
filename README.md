@@ -8,7 +8,7 @@ Below Zero is a GNOME Shell extension that aims to let you turn your laptop's ph
 
 I used Mac for many years and i really liked that you can turn off the screen completely just with brightness slider, unfortunately in most cases you can`t do that on regular laptops.
 
-So. Below Zero was created to address this limitation by allowing the hardware backlight to reach 0%, instead of simply placing a dark overlay over the screen.
+So. Below Zero was created to address this limitation by allowing the hardware backlight to reach 0%, instead of simply placing a dark overlay over the screen. (Because not all laptops have cool OLED screens obviously)
 
 ## Features
 
@@ -45,6 +45,7 @@ The project includes an installation script and a privileged helper.
 3. Follow the installation instructions provided with the project.
 
 **Warning:** This extension uses elevated privileges to change the hardware backlight. Compatibility depends on your system's backlight interface. Make sure you know how to restore your brightness if the screen becomes too dark.
+Me personally - i`m using default brightness buttons on my 'f1-f12' keys.
 
 ## Uninstallation
 
