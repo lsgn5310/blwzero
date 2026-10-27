@@ -25,7 +25,16 @@ Initially tested on:
 - GNOME Shell 50
 - Intel integrated graphics with the `intel_backlight` interface
 
-Other hardware and GNOME versions have not yet been tested.
+## Hardware compatibility
+
+Currently, Below Zero only supports systems using the `intel_backlight` interface.
+
+AMD, NVIDIA, ACPI, and other backlight interfaces are **not officially supported** or tested.
+
+I'm too lazy to implement support for every backlight interface myself so yeah :)) 
+Feel free to add support for other hardware yourself — contributions are welcome! 
+
+If you get it working on other hardware, feel free to open a pull request.
 
 ## Installation
 
@@ -43,9 +52,8 @@ Use the included `uninstall.sh` script and follow its instructions.
 
 ## Project status
 
-This is an early-stage community project. It has been tested on the developer's laptop, but it is not an official GNOME extension.
-
-Bug reports, testing, and contributions are welcome.
+This is an early-stage community project. It has been tested on the developer's laptop, but it is not an official GNOME extension yet.
+Bug reports, testing, and contributions are welcome as i mentioned.
 
 ## License
 
