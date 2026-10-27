@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>Backlight Zero</vendor>
+  <action id="org.local.backlightzero">
+    <description>Control the built-in Intel screen backlight</description>
+    <message>Authentication is required to control the built-in screen backlight</message>
+    <icon_name>display-brightness-symbolic</icon_name>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/backlight-zero-helper</annotate>
+  </action>
+</policyconfig>

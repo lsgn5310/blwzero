@@ -1,0 +1,65 @@
+#!/usr/bin/python3
+"""Restricted root helper for Backlight Zero GNOME Shell extension.
+
+Accepts only normalized brightness writes (SET 0..1000000) and QUIT over stdin.
+It does not execute shell commands or accept arbitrary filesystem paths.
+"""
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+BACKLIGHT_DIR = Path('/sys/class/backlight/intel_backlight')
+BRIGHTNESS_FILE = BACKLIGHT_DIR / 'brightness'
+MAX_FILE = BACKLIGHT_DIR / 'max_brightness'
+VALUE_SCALE = 1_000_000
+
+
+def read_levels() -> tuple[int, int]:
+    maximum = int(MAX_FILE.read_text(encoding='ascii').strip())
+    current = int(BRIGHTNESS_FILE.read_text(encoding='ascii').strip())
+    if maximum <= 0:
+        raise ValueError('max_brightness is not positive')
+    return max(0, min(current, maximum)), maximum
+
+
+def emit(message: str) -> None:
+    sys.stdout.write(message + '\n')
+    sys.stdout.flush()
+
+
+def main() -> int:
+    try:
+        current, maximum = read_levels()
+    except Exception as exc:  # noqa: BLE001 - return a readable protocol error
+        emit(f'ERROR Cannot access intel_backlight: {exc}')
+        return 1
+
+    emit(f'READY {current} {maximum}')
+    for raw in sys.stdin:
+        command = raw.strip().split()
+        if not command:
+            continue
+        if command == ['QUIT']:
+            emit('BYE')
+            return 0
+        if len(command) != 2 or command[0] != 'SET':
+            emit('ERROR Unsupported command')
+            continue
+        try:
+            normalized = int(command[1], 10)
+            if normalized < 0 or normalized > VALUE_SCALE:
+                raise ValueError('brightness outside allowed range')
+            _, maximum = read_levels()
+            target = (maximum * normalized + VALUE_SCALE // 2) // VALUE_SCALE
+            # Write only the single preconfigured sysfs attribute.
+            BRIGHTNESS_FILE.write_text(f'{target}\n', encoding='ascii')
+            current, maximum = read_levels()
+            emit(f'OK {current} {maximum}')
+        except Exception as exc:  # noqa: BLE001
+            emit(f'ERROR Brightness write failed: {exc}')
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
