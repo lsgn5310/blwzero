@@ -4,6 +4,23 @@
 
 Below Zero is a GNOME Shell extension that aims to let you turn your laptop's physical display backlight all the way down to zero using the standard GNOME brightness slider and keyboard brightness controls.
 
+## Usage
+
+Once installed, use GNOME's regular brightness controls:
+Brightness slider: Open the system menu and move the brightness slider all the way down.
+Brightness keys: Use your laptop's brightness-down key until the brightness reaches its minimum.
+
+## Installation
+
+The project includes an installation script and a privileged helper.
+
+1. Download or clone this repository.
+2. Review the source code and installation scripts.
+3. Follow the installation instructions provided with the project.
+
+**Warning:** This extension uses elevated privileges to change the hardware backlight. Compatibility depends on your system's backlight interface. Make sure you know how to restore your brightness if the screen becomes too dark.
+Me personally - i`m using default brightness buttons on my 'f1-f12' keys.
+
 ## The problem
 
 I used Mac for many years and i really liked that you can turn off the screen completely just with brightness slider, unfortunately in most cases you can`t do that on regular laptops.
@@ -35,17 +52,6 @@ I'm too lazy to implement support for every backlight interface myself so yeah :
 Feel free to add support for other hardware yourself — contributions are welcome! 
 
 If you get it working on other hardware, feel free to open a pull request.
-
-## Installation
-
-The project includes an installation script and a privileged helper.
-
-1. Download or clone this repository.
-2. Review the source code and installation scripts.
-3. Follow the installation instructions provided with the project.
-
-**Warning:** This extension uses elevated privileges to change the hardware backlight. Compatibility depends on your system's backlight interface. Make sure you know how to restore your brightness if the screen becomes too dark.
-Me personally - i`m using default brightness buttons on my 'f1-f12' keys.
 
 ## Uninstallation
 
