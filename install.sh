@@ -18,7 +18,7 @@ fi
 # Disable an already-loaded copy before updating its files.
 if command -v gnome-extensions >/dev/null 2>&1; then
   if gnome-extensions list --enabled 2>/dev/null | grep -Fxq "$UUID"; then
-    echo "Disabling the loaded Backlight Zero copy before updating..."
+    echo "Disabling the loaded Below Zero copy before updating..."
     gnome-extensions disable "$UUID" || true
   fi
 fi
@@ -44,7 +44,7 @@ PY
   gsettings set org.gnome.shell enabled-extensions "$updated"
 fi
 
-printf '\nBacklight Zero v5 installed.\n'
+printf '\nBelow Zero v5 installed.\n'
 printf 'Normal GNOME/Mutter handling is preserved for all non-zero brightness values.\n'
 printf 'Only exact slider minimum (0) writes literal 0 to intel_backlight.\n'
 printf 'Log out of GNOME and log back in to load the new code. Keep other brightness extensions disabled while testing.\n'

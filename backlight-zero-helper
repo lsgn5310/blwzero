@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""Restricted root helper for Below Zero GNOME Shell extension.
 
+Accepts only normalized brightness writes (SET 0..1000000) and QUIT over stdin.
+It does not execute shell commands or accept arbitrary filesystem paths.
+"""
 from __future__ import annotations
 
 import sys

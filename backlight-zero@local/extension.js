@@ -66,7 +66,7 @@ export default class BacklightZeroExtension extends Extension {
             });
             this._readLine();
         } catch (e) {
-            console.error(`[Backlight Zero] Could not start privileged helper: ${e.message}`);
+            console.error(`[Below Zero] Could not start privileged helper: ${e.message}`);
         }
     }
 
@@ -80,23 +80,23 @@ export default class BacklightZeroExtension extends Extension {
                 [line] = stream.read_line_finish_utf8(result);
             } catch (e) {
                 if (!this._stopping)
-                    console.error(`[Backlight Zero] Helper communication failed: ${e.message}`);
+                    console.error(`[Below Zero] Helper communication failed: ${e.message}`);
             }
 
             if (line === null) {
                 this._helperReady = false;
                 this._restorePatches();
                 if (!this._stopping)
-                    console.error('[Backlight Zero] Privileged helper exited. Disable and re-enable the extension to try again.');
+                    console.error('[Below Zero] Privileged helper exited. Disable and re-enable the extension to try again.');
                 return;
             }
 
             if (line.startsWith('READY ')) {
                 this._helperReady = true;
                 this._patchCurrentBacklightScale();
-                console.log(`[Backlight Zero] Helper is ready (${line.slice(6)}).`);
+                console.log(`[Below Zero] Helper is ready (${line.slice(6)}).`);
             } else if (line.startsWith('ERROR ')) {
-                console.error(`[Backlight Zero] ${line.slice(6)}`);
+                console.error(`[Below Zero] ${line.slice(6)}`);
             }
 
             this._readLine();
@@ -171,7 +171,7 @@ export default class BacklightZeroExtension extends Extension {
             return true;
         } catch (e) {
             this._helperReady = false;
-            console.error(`[Backlight Zero] Could not send brightness: ${e.message}`);
+            console.error(`[Below Zero] Could not send brightness: ${e.message}`);
             this._restorePatches();
             return false;
         }
@@ -187,7 +187,7 @@ export default class BacklightZeroExtension extends Extension {
             else
                 delete scale.setBacklight;
         } catch (e) {
-            console.error(`[Backlight Zero] Could not restore GNOME brightness handler: ${e.message}`);
+            console.error(`[Below Zero] Could not restore GNOME brightness handler: ${e.message}`);
         }
         this._patches.delete(scale);
     }

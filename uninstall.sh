@@ -17,4 +17,4 @@ fi
 gnome-extensions disable "$UUID" 2>/dev/null || true
 rm -rf "$HOME/.local/share/gnome-shell/extensions/$UUID"
 sudo rm -f /usr/libexec/backlight-zero-helper /usr/share/polkit-1/actions/org.local.backlightzero.policy
-printf 'Backlight Zero removed. Log out and back in to reload GNOME Shell.\n'
+printf 'Below Zero removed. Log out and back in to reload GNOME Shell.\n'

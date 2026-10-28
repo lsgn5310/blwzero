@@ -1,7 +1,7 @@
 {
   "uuid": "backlight-zero@local",
-  "name": "Backlight Zero",
-  "description": "Keep normal GNOME brightness behavior and set physical Intel backlight to zero only at the slider minimum.",
+  "name": "Below Zero",
+  "description": "Set the Intel display backlight to true 0% at the GNOME brightness minimum.",
   "version": 5,
   "shell-version": ["50"]
 }

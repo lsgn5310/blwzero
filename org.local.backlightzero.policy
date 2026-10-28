@@ -3,7 +3,7 @@
  "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
  "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
 <policyconfig>
-  <vendor>Backlight Zero</vendor>
+  <vendor>Below Zero</vendor>
   <action id="org.local.backlightzero">
     <description>Control the built-in Intel screen backlight</description>
     <message>Authentication is required to control the built-in screen backlight</message>
